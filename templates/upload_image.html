@@ -1,0 +1,43 @@
+<!-- <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploade Image</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+
+</head>
+
+<body>
+    <h1>Number Plate Recognition</h1>
+    <h4>Uploade Image</h4>
+    <form action="{% url 'file-upload' %}" class="dropzone" id="my-dropzone" enctype="multipart/form-data">
+        {% csrf_token %}
+    </form>
+
+    <script>
+        Dropzone.options.myDropzone = {
+            maxFilesize: 5, // MB
+            acceptedFiles: '.png,.jpg,.jpeg,.pdf,.docx', // allowed file types
+            success: function (file, response) {
+                console.log('File uploaded successfully:', response);
+            },
+            error: function (file, response) {
+                console.error('Error uploading file:', response);
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+
+</body>
+
+</html> -->
+
+<h2>Upload an Image for Number Plate Detection</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
